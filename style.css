@@ -1,0 +1,14 @@
+footer{
+    background-color:bisque;
+    position-;
+}
+
+body 
+{
+    display :flex;
+    height: 100%;
+}
+
+.main{
+    flex:1
+}
