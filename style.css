@@ -49,6 +49,11 @@ main {
 
 section {
   margin-bottom: 40px;
+  border-radius: 10px;
+  border-style: double;
+  padding: 2%;
+
+  
 }
 
 h2 {
