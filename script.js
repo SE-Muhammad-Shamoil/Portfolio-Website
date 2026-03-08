@@ -114,9 +114,20 @@ async function fetchGitHubProjects() {
         if (loader) loader.classList.add('hidden');
         if (grid) grid.classList.remove('hidden');
 
-        // Filter and display specific or recent repos
-        // E.g. filtering out empty repos or specific ones we want to highlight
-        const reposToDisplay = data.filter(repo => !repo.fork && repo.name !== username).slice(0, 6);
+        // Curated list of impressive projects to showcase
+        const allowedRepos = [
+            'Agent-Bassed-Smart-Architect',
+            'FlightNavigator',
+            'LA-Project-Hill-Cypher',
+            'Ibadify-Ibadat-Tracker',
+            'Netflix-front-end-clone',
+            'SFML-Based-ALien-Shooter-Game',
+            'Metro-Companion-APP',
+            'Pacman_with_menu_c_plusplus'
+        ];
+
+        // Filter and display specific curated repos
+        const reposToDisplay = data.filter(repo => allowedRepos.includes(repo.name)).slice(0, 9);
 
         reposToDisplay.forEach((repo, index) => {
             const techColor = getLanguageColor(repo.language);

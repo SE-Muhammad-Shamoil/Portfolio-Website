@@ -1,0 +1,14 @@
+# Internal Planning & Notes
+Questions.md
+Personal_Information.md
+Requirements.md
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Node modules (if added later)
+node_modules/
