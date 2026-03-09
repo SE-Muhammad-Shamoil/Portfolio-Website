@@ -1,406 +1,657 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Shamoil | Software Engineer & UX Designer</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#3b82f6',    // Blue-500
-                        secondary: '#8b5cf6',  // Violet-500
-                        darkBg: '#0f172a',     // Slate-900
-                        darkCard: '#1e293b',   // Slate-800
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Shamoil | Software Engineer & UX Designer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#3b82f6',  // Blue-500
+            secondary: '#8b5cf6', // Violet-500
+            darkBg: '#0f172a',   // Slate-900
+            darkCard: '#1e293b',  // Slate-800
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             }
+          }
         }
-    </script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+      }
+    }
+  </script>
+  <!-- Devicon CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 antialiased overflow-x-hidden selection:bg-primary selection:text-white cursor-none">
 
-    <!-- Background Decorative Elements -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob dark:bg-primary/10"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000 dark:bg-secondary/10"></div>
-        <div class="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000 dark:bg-pink-500/10"></div>
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[100] bg-white dark:bg-darkBg flex items-center justify-center transition-opacity duration-700">
+    <div class="relative w-24 h-24">
+      <div class="absolute inset-0 rounded-full border-t-4 border-primary animate-spin"></div>
+      <div class="absolute inset-2 rounded-full border-r-4 border-secondary animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+      <div class="absolute inset-4 rounded-full border-b-4 border-pink-500 animate-spin" style="animation-duration: 2s;"></div>
     </div>
+  </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                        Shamoil<span class="text-gray-900 dark:text-white">.</span>
-                    </a>
-                </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">About Me</a>
-                    <a href="#experience" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Experience</a>
-                    <a href="#projects" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Projects</a>
-                    <a href="#skills" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Skills</a>
-                    <a href="#contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Contact</a>
-                    
-                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
-                        <i data-feather="moon" class="w-5 h-5 hidden dark:block"></i>
-                        <i data-feather="sun" class="w-5 h-5 block dark:hidden"></i>
-                    </button>
-                    
-                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-primary hover:bg-blue-600 text-white text-sm font-medium transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5">
-                        Hire Me
-                    </a>
-                </div>
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center space-x-4">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-full text-gray-700 dark:text-gray-300">
-                        <i data-feather="moon" class="w-5 h-5 hidden dark:block"></i>
-                        <i data-feather="sun" class="w-5 h-5 block dark:hidden"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-300 hover:text-primary focus:outline-none">
-                        <i data-feather="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- Custom Cursor -->
+  <div id="cursor" class="fixed w-4 h-4 bg-primary/50 dark:bg-primary/80 rounded-full pointer-events-none z-[9999] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block mix-blend-difference blur-[1px]"></div>
+  <div id="cursor-follower" class="fixed w-10 h-10 border-2 border-primary/30 dark:border-primary/50 rounded-full pointer-events-none z-[9998] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out hidden md:block"></div>
+
+  <!-- Vanta WebGL Background -->
+  <div id="vanta-bg" class="fixed inset-0 z-[-1] pointer-events-none opacity-60"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            Shamoil<span class="text-gray-900 dark:text-white">.</span>
+          </a>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white/90 dark:bg-darkBg/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">About Me</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Experience</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Projects</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Skills</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
-            </div>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#about" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">About Me</a>
+          <a href="#experience" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Experience</a>
+          <a href="#projects" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Projects</a>
+          <a href="#certifications" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Certifications</a>
+          <a href="#skills" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Skills</a>
+          <a href="#contact" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors text-sm font-medium">Contact</a>
+          
+          <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+            <i data-feather="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-feather="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          
+          <a href="#contact" class="px-5 py-2.5 rounded-full bg-primary hover:bg-blue-600 text-white text-sm font-medium transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5">
+            Hire Me
+          </a>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-12 lg:gap-20">
-                <!-- Text Content -->
-                <div class="text-center md:text-left md:w-2/3 space-y-8 reveal opacity-0 outline-none" tabindex="-1">
-                    <div class="inline-flex items-center space-x-2 bg-white/50 dark:bg-darkCard/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm mx-auto md:mx-0 mb-4">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span>Available for new opportunities</span>
-                    </div>
-                    
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
-                        Bridging <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">User Needs</span><br />
-                        with System Logic.
-                    </h1>
-                    
-                    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0 font-light leading-relaxed">
-                        Hi, I'm <strong class="text-gray-900 dark:text-white font-semibold">Muhammad Shamoil</strong>, a Software Engineer, Web Developer & UI/UX Engineer. I am currently a fourth-semester Software Engineering student at Air University, Islamabad.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold transition-all hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center space-x-2">
-                            <span>View My Work</span>
-                            <i data-feather="arrow-right" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white dark:bg-darkCard text-gray-900 dark:text-white font-medium border border-gray-200 dark:border-gray-700 transition-all hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary flex items-center justify-center space-x-2 shadow-sm">
-                            <i data-feather="github" class="w-5 h-5"></i>
-                            <span>GitHub Profile</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Profile Picture -->
-                <div class="md:w-1/3 flex justify-center reveal opacity-0" style="transition-delay: 200ms;">
-                    <div class="w-56 h-56 md:w-72 md:h-72 relative group rounded-full p-2 bg-gradient-to-tr from-primary to-secondary flex-shrink-0">
-                        <div class="absolute inset-0 bg-gray-50 dark:bg-darkBg rounded-full"></div>
-                        <!-- We fetch the Avatar via JS -->
-                        <img id="profile-img" src="" alt="Muhammad Shamoil" class="relative z-10 w-full h-full rounded-full object-cover border-4 border-white dark:border-darkBg shadow-lg transition-transform duration-500 group-hover:scale-[1.03]">
-                    </div>
-                </div>
-            </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center space-x-4">
+          <button id="theme-toggle-mobile" class="p-2 rounded-full text-gray-700 dark:text-gray-300">
+            <i data-feather="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-feather="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-300 hover:text-primary focus:outline-none">
+            <i data-feather="menu" class="w-6 h-6"></i>
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/90 dark:bg-darkBg/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">About Me</a>
+        <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Experience</a>
+        <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Projects</a>
+        <a href="#certifications" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Certifications</a>
+        <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Skills</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-100/50 dark:bg-gray-800/20 border-y border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal opacity-0">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">About <span class="text-primary">Me</span></h2>
-            <div class="bg-white dark:bg-darkCard p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                    I’m currently a fourth-semester Software Engineering student at Air University, Islamabad. 
-                    I’m passionate about learning C++ and working with technologies like SFML, socket programming, and file systems.
-                    I am actively seeking opportunities where I can apply my problem-solving skills, design intuition, and systems architecture knowledge.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 lg:py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
-                <div class="md:w-1/3 reveal opacity-0">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Professional <br/><span class="text-primary">Experience</span></h2>
-                    <p class="text-gray-600 dark:text-gray-400">A track record of leading design, understanding users, and shipping high-quality interfaces.</p>
-                </div>
-                <div class="md:w-2/3 reveal opacity-0" style="transition-delay: 200ms;">
-                    
-                    <div class="relative pl-8 sm:pl-0">
-                        <div class="hidden sm:block absolute left-[15px] top-2 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800"></div>
-                        
-                        <div class="relative sm:pl-12 group">
-                            <div class="hidden sm:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-primary/20 dark:bg-primary/20 border-2 border-primary items-center justify-center z-10 group-hover:bg-primary transition-colors">
-                                <div class="w-2 h-2 rounded-full bg-primary group-hover:bg-white transition-colors"></div>
-                            </div>
-                            
-                            <div class="bg-white dark:bg-darkCard rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all hover:border-primary/30 dark:hover:border-primary/30 relative overflow-hidden group">
-                                <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-[100px] z-0 transition-transform group-hover:scale-110"></div>
-                                
-                                <div class="relative z-10">
-                                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">UI/UX Intern & Team Lead</h3>
-                                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700">HEAL Islamabad</span>
-                                    </div>
-                                    
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 flex items-center">
-                                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i> Role Focus: Design Leadership & Execution
-                                    </p>
-                                    
-                                    <ul class="space-y-3 mb-6">
-                                        <li class="flex items-start">
-                                            <i data-feather="check-circle" class="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5"></i>
-                                            <span class="text-gray-700 dark:text-gray-300"><strong>Awarded Best Intern</strong> for outstanding contribution to the product's UX.</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-feather="check-circle" class="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5"></i>
-                                            <span class="text-gray-700 dark:text-gray-300"><strong>Team Leadership:</strong> Successfully led and mentored a team of 3 interns.</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-feather="check-circle" class="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5"></i>
-                                            <span class="text-gray-700 dark:text-gray-300"><strong>Product Impact:</strong> Spearheaded the complete UI/UX architecture and design execution for the core HEAL app.</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 lg:py-32 relative bg-gray-100/50 dark:bg-gray-800/20 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-12 reveal opacity-0">
-                <div>
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Academic & Featured <span class="text-primary">Projects</span></h2>
-                    <p class="text-gray-600 dark:text-gray-400">A mix of core engineering solutions and web apps fetched from GitHub.</p>
-                </div>
-                <!-- Optional link to see all repso -->
-                <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="hidden sm:inline-flex items-center text-primary font-medium hover:underline">
-                    View full GitHub <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
-                </a>
-            </div>
-
-            <!-- Static Academic Projects -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Project 1 -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full reveal opacity-0">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                            <i data-feather="monitor"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Decentralized File Explorer</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Built using C++ and SFML. Utilizes hashing and linked lists for efficient file metadata management.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#C++</span>
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#SFML</span>
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#DataStructures</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full reveal opacity-0" style="transition-delay: 100ms;">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                            <i data-feather="message-circle"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">WhatsApp-like Chat App</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Socket programming in Python with a graphical interface and real-time multi-client server communication.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#Python</span>
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#SocketProgramming</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full reveal opacity-0" style="transition-delay: 200ms;">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
-                            <i data-feather="pie-chart"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Student Performance Analyzer</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Jupyter Notebook project using Python and Pandas to analyze datasets and generate actionable insights.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#DataScience</span>
-                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#Pandas</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Loader for GitHub repos -->
-            <div id="projects-loader" class="flex justify-center py-10">
-                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-            </div>
-
-            <!-- Dynamic GitHub Projects Grid -->
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden border-t border-gray-200 dark:border-gray-700 pt-12">
-                <!-- Project cards injected via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal opacity-0">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Technical <span class="text-primary">Arsenal</span></h2>
-                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life across the stack.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Core Engineering -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow reveal opacity-0" style="transition-delay: 100ms;">
-                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="cpu" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Core Engineering</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">C++</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Python</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Data Structures</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">SFML</span>
-                    </div>
-                </div>
-
-                <!-- Frontend & Design -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow reveal opacity-0" style="transition-delay: 200ms;">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="layout" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Web & UI/UX</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">React</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">JavaScript</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Tailwind CSS</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Figma</span>
-                    </div>
-                </div>
-
-                <!-- Backend & Data -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow reveal opacity-0" style="transition-delay: 300ms;">
-                    <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="database" class="w-6 h-6 text-emerald-600 dark:text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Database & Data Science</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">SQL (Oracle)</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Database Development</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Data Analysis</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Supabase</span>
-                    </div>
-                </div>
-
-                <!-- Tools -->
-                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow reveal opacity-0" style="transition-delay: 400ms;">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="terminal" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Tools & Version Control</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Git</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">GitHub</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Vercel</span>
-                        <span class="px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-700">Netlify</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 lg:py-32 border-t border-gray-200 dark:border-gray-800 relative z-10 bg-white/50 dark:bg-darkBg/50 backdrop-blur-3xl">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal opacity-0">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-                <i data-feather="mail" class="w-8 h-8"></i>
-            </div>
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Let's build something <span class="text-primary italic">great</span> together.</h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400 mb-10">Whether you are a recruiter looking for a dedicated full-stack engineer or someone with a design challenge, my inbox is open.</p>
-            
-            <a href="mailto:shamoil004@gmail.com" class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-blue-600 text-white font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-                <span>Say Hello -> shamoil004@gmail.com</span>
+  <!-- Hero Section -->
+  <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex items-center min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-12 lg:gap-20">
+        <!-- Text Content -->
+        <div class="text-center md:text-left md:w-2/3 space-y-8 outline-none" data-aos="fade-up" tabindex="-1">
+          <div class="inline-flex items-center space-x-2 bg-white/50 dark:bg-darkCard/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm mx-auto md:mx-0 mb-4">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span>Available for new opportunities</span>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight mb-2 h-[120px] sm:h-auto">
+            I build <br class="hidden sm:block"/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary inline-block" id="dynamic-text"></span><span class="animate-pulse text-primary">_</span>
+          </h1>
+          
+          <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0 font-light leading-relaxed">
+            Hi, I'm <strong class="text-gray-900 dark:text-white font-semibold">Muhammad Shamoil</strong>. I bridge the gap between robust software architecture and highly intuitive user interfaces. As a Software Engineering student at Air University and a Microsoft Learn Student Ambassador, I am passionate about engineering accessible web applications and exploring the frontiers of generative AI.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+            <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold transition-all hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center space-x-2">
+              <span>View My Work</span>
+              <i data-feather="arrow-right" class="w-5 h-5"></i>
             </a>
+            <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white dark:bg-darkCard text-gray-900 dark:text-white font-medium border border-gray-200 dark:border-gray-700 transition-all hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary flex items-center justify-center space-x-2 shadow-sm">
+              <i data-feather="github" class="w-5 h-5"></i>
+              <span>GitHub Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="md:w-1/3 flex justify-center " data-aos="fade-up" data-aos-delay="200">
+          <div class="w-56 h-56 md:w-72 md:h-72 relative group rounded-full p-2 bg-gradient-to-tr from-primary to-secondary flex-shrink-0">
+            <div class="absolute inset-0 bg-gray-50 dark:bg-darkBg rounded-full"></div>
+            <!-- We fetch the Avatar via JS -->
+            <img id="profile-img" src="" alt="Muhammad Shamoil" class="relative z-10 w-full h-full rounded-full object-cover border-4 border-white dark:border-darkBg shadow-lg transition-transform duration-500 group-hover:scale-[1.03]">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Interactive Terminal Section -->
+  <section class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-[-60px] mb-20 hidden md:block">
+    <div class="bg-[#0f172a] rounded-xl overflow-hidden shadow-2xl shadow-primary/20 border border-gray-800" data-aos="fade-up" data-aos-delay="400">
+      <!-- Terminal Header -->
+      <div class="bg-[#1e293b] px-4 py-3 flex items-center gap-2 border-b border-gray-800">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        <span class="ml-4 text-xs text-gray-400 font-mono">shamoil@air-university: ~/portfolio</span>
+      </div>
+      <!-- Terminal Body -->
+      <div class="p-6 font-mono text-sm text-gray-300 h-64 overflow-y-auto" id="terminal-body" onclick="document.getElementById('terminal-input').focus()">
+        <div id="terminal-output"></div>
+        <div class="flex items-center mt-2 font-mono" id="terminal-input-row" style="opacity: 0;">
+          <span class="text-primary mr-2 font-bold">➜</span>
+          <span class="text-blue-400 mr-2 font-bold">~</span>
+          <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-gray-200 flex-1 w-full font-mono focus:ring-0" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid Section -->
+  <section id="bento" class="py-20 bg-gray-50/10 dark:bg-gray-800/10 border-y border-gray-200 dark:border-gray-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Snapshot & <span class="text-primary">Setup</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">A quick look at who I am, where I am based, and what I build with.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+        
+        <!-- About Me Tile (Spans 2 columns) -->
+        <div class="md:col-span-2 bg-white dark:bg-darkCard rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden group hover:shadow-xl transition-shadow" data-aos="fade-up">
+          <div class="absolute -right-10 -top-10 text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none">
+            <i data-feather="user" style="width: 250px; height: 250px; stroke-width: 1;"></i>
+          </div>
+          <div class="relative z-10 h-full flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">The Engineer</h3>
+            <p class="text-gray-600 dark:text-gray-300 font-medium leading-relaxed max-w-xl">
+              I am a 6th-semester Software Engineering student at Air University (2023–2027) and a Microsoft Learn Student Ambassador. I view AI as a creative partner and focus intensely on Web Development, UX Research, and core systems engineering.
+            </p>
+          </div>
+        </div>
+
+        <!-- Location Tile -->
+        <div class="bg-white dark:bg-darkCard rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden flex flex-col items-center justify-center text-center group hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute inset-0 bg-[#e2e8f0] dark:bg-[#0f172a]/50 pointer-events-none opacity-50 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/40 text-primary flex items-center justify-center mb-4 group-hover:scale-110 group-hover:-translate-y-2 transition-all shadow-lg relative z-10 border border-blue-200 dark:border-blue-800">
+            <i data-feather="map-pin" class="w-8 h-8 fill-primary/10"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white relative z-10">Islamabad</h3>
+          <p class="text-gray-500 dark:text-gray-400 relative z-10 font-medium">Pakistan</p>
+        </div>
+
+        <!-- /uses (Tools) Tile (Spans 2 columns) -->
+        <div class="md:col-span-2 bg-white dark:bg-darkCard rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col justify-center hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+              <i data-feather="terminal" class="text-gray-900 dark:text-white w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Workspace & <span class="text-secondary font-mono">/uses</span></h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Antigravity (IDE)</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-sm"><i data-feather="monitor" class="w-4 h-4 text-gray-500"></i> Android Studio</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Vercel</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Git</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Figma</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Wispr</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Clickup</span>
+            <span class="px-4 py-2 bg-gray-50 dark:bg-[#0f172a] rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">Trello</span>
+          </div>
+        </div>
+
+        <!-- Currently Learning Tile -->
+        <div class="bg-gradient-to-br from-primary to-secondary rounded-3xl p-8 text-white shadow-xl flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute right-[-20%] top-[-20%] w-48 h-48 bg-white/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+          <div class="absolute bottom-[-10%] left-[-10%] w-32 h-32 bg-secondary/50 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div class="flex items-center gap-2 mb-4 relative z-10 text-white/80">
+            <i data-feather="book-open" class="w-4 h-4"></i>
+            <span class="text-xs font-bold tracking-widest uppercase">Currently Focus</span>
+          </div>
+          
+          <h3 class="text-2xl sm:text-3xl font-bold leading-tight relative z-10">
+            Software Architecture & GenAI Automation
+          </h3>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 lg:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-12 lg:gap-24">
+        <div class="md:w-1/3 " data-aos="fade-up">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Professional <br/><span class="text-primary">Experience</span></h2>
+          <p class="text-gray-600 dark:text-gray-400">A track record of leading design, understanding users, and shipping high-quality interfaces.</p>
+        </div>
+        <div class="md:w-2/3 " data-aos="fade-up" data-aos-delay="200">
+          
+          <div class="relative pl-8 sm:pl-0">
+            <!-- Timeline track with gradient -->
+            <div class="hidden sm:block absolute left-[15px] top-2 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-transparent"></div>
             
-            <div class="mt-16 flex justify-center space-x-6">
-                <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    <span class="sr-only">GitHub</span>
-                    <i data-feather="github" class="w-6 h-6"></i>
-                </a>
-                <a href="https://linkedin.com/in/m-shamoil" target="_blank" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    <span class="sr-only">LinkedIn</span>
-                    <i data-feather="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="tel:+923316873760" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                    <span class="sr-only">Phone</span>
-                    <i data-feather="phone" class="w-6 h-6"></i>
-                </a>
+            <!-- UI/UX Intern Experience -->
+            <div class="relative sm:pl-12 group">
+              <!-- Glowing animated timeline node -->
+              <div class="hidden sm:flex absolute left-0 top-1 w-8 h-8 rounded-full bg-white dark:bg-darkBg border-2 border-secondary items-center justify-center z-10 group-hover:scale-125 transition-transform duration-300 shadow-[0_0_15px_rgba(139,92,246,0.6)]">
+                <div class="w-2 h-2 rounded-full bg-secondary"></div>
+              </div>
+              
+              <div class="bg-white dark:bg-darkCard rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all hover:-translate-y-1 hover:border-secondary/50 dark:hover:border-secondary/50 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-[100px] z-0 transition-transform group-hover:scale-110"></div>
+                
+                <div class="relative z-10">
+                  <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">UI/UX Intern & Team Lead</h3>
+                    <span class="px-3 py-1 bg-gray-100 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 shadow-sm">HEAL Islamabad</span>
+                  </div>
+                  
+                  <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6 font-mono bg-gray-50 dark:bg-[#0f172a]/50 p-2 rounded-lg inline-flex border border-gray-100 dark:border-gray-800">
+                    <span class="flex items-center text-secondary font-semibold"><i data-feather="calendar" class="w-4 h-4 mr-2"></i> June 2024 — August 2024</span>
+                  </div>
+                  
+                  <ul class="space-y-3 mb-2">
+                    <li class="flex items-start">
+                      <i data-feather="award" class="w-5 h-5 text-yellow-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                      <span class="text-gray-700 dark:text-gray-300"><strong>Awarded Best Intern</strong> out of a highly competitive batch for outstanding contribution to the product's UX.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i data-feather="users" class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3 flex-shrink-0 mt-0.5"></i>
+                      <span class="text-gray-700 dark:text-gray-300"><strong>Team Leadership:</strong> Successfully led and mentored a team of 3 interns.</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i data-feather="layers" class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3 flex-shrink-0 mt-0.5"></i>
+                      <span class="text-gray-700 dark:text-gray-300"><strong>Product Impact:</strong> Spearheaded the complete UI/UX architecture and design execution for the core HEAL app.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 lg:py-32 relative bg-gray-100/50 dark:bg-gray-800/20 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-12 " data-aos="fade-up">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Academic & Featured <span class="text-primary">Projects</span></h2>
+          <p class="text-gray-600 dark:text-gray-400">A mix of core engineering solutions and web apps fetched from GitHub.</p>
+        </div>
+        <!-- Optional link to see all repso -->
+        <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="hidden sm:inline-flex items-center text-primary font-medium hover:underline">
+          View full GitHub <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+        </a>
+      </div>
+
+      <!-- Static Academic Projects -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Project 1 -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full " data-aos="fade-up">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+              <i data-feather="monitor"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Decentralized File Explorer</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Built using C++ and SFML. Utilizes hashing and linked lists for efficient file metadata management.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#C++</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#SFML</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#DataStructures</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full " data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+              <i data-feather="message-circle"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">WhatsApp-like Chat App</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Socket programming in Python with a graphical interface and real-time multi-client server communication.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#Python</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#SocketProgramming</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full " data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+              <i data-feather="pie-chart"></i>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Student Performance Analyzer</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Jupyter Notebook project using Python and Pandas to analyze datasets and generate actionable insights.</p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#DataScience</span>
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md">#Pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loader for GitHub repos -->
+      <div id="projects-loader" class="flex justify-center py-10">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+
+      <!-- Dynamic GitHub Projects Grid -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden border-t border-gray-200 dark:border-gray-700 pt-12">
+        <!-- Project cards injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 lg:py-32 relative bg-gray-50/50 dark:bg-gray-800/10 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-12 " data-aos="fade-up">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Licenses & <span class="text-primary">Certifications</span></h2>
+          <p class="text-gray-600 dark:text-gray-400">Professional qualifications and Meta certifications.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Cert 1 -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/0B9A4KH7HEGJ" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="award"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Advanced React</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Demonstrates advanced concepts in React development, including hooks, context, and performance optimization.</p>
+        </a>
+
+        <!-- Cert 2 -->
+        <a href="https://www.coursera.org/account/accomplishments/records/89WD1FTXQFMV" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="database"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Databases for Back-End</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Covers fundamental concepts of database design, SQL, and back-end integration.</p>
+        </a>
+
+        <!-- Cert 3 -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/WV6DIMZECXHA" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="code"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Programming with JavaScript</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Covers modern JavaScript features, asynchronous programming, and DOM manipulation.</p>
+        </a>
+
+        <!-- Cert 4 -->
+        <a href="https://www.coursera.org/account/accomplishments/certificate/2IS9RQHPNV31" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="layout"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">React Basics</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Fundamental concepts of building interactive UIs, components, and hooks.</p>
+        </a>
+
+        <!-- Cert 5 -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/6T0LVAPRY444" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="git-branch"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Version Control</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Deep dive into managing source code using Git and GitHub workflows.</p>
+        </a>
+
+        <!-- Cert 6 -->
+        <a href="https://coursera.org/verify/M5G2IXCISZ2Q" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="monitor"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Introduction to Front-End</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Meta. Getting started with HTML, CSS, JavaScript and essential modern web development.</p>
+        </a>
+
+        <!-- Cert 7 -->
+        <a href="https://www.coursera.org/account/accomplishments/records/3D0DZWMAT1NB" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="pen-tool"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Foundations of UX Design</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Google. Basics of the UX design process, empathizing with users, and wireframing.</p>
+        </a>
+
+        <!-- Cert 8 -->
+        <a href="https://coursera.org/verify/LNYKAIVS3C4H" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="700">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="layers"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Start the UX Design Process</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by Google. Focuses on user research, empathy maps, and generating ideation matrices.</p>
+        </a>
+
+        <!-- Cert 9 -->
+        <a href="https://www.coursera.org/account/accomplishments/verify/AXN69LVVBD6L" target="_blank" class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all flex flex-col h-full hover:border-primary/50 dark:hover:border-primary/50 group block" data-aos="fade-up" data-aos-delay="800">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-primary group-hover:text-white transition-colors">
+              <i data-feather="cpu"></i>
+            </div>
+            <i data-feather="external-link" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">AI For Everyone</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Issued by DeepLearning.AI. Non-technical deep dive into the business implications and basics of AI.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 lg:py-32 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 " data-aos="fade-up">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">Technical <span class="text-primary">Arsenal</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life across the stack.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Core Engineering -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm transition-all" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="400" style="transform-style: preserve-3d;">
+          <div class="w-12 h-12 bg-red-100 dark:bg-red-900/40 rounded-xl flex items-center justify-center mb-6" style="transform: translateZ(30px);">
+            <i data-feather="cpu" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4" style="transform: translateZ(20px);">Core Engineering</h3>
+          <div class="flex flex-wrap gap-2" style="transform: translateZ(10px);">
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-blue-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-cplusplus-plain text-base"></i> C++</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-yellow-500 hover:text-black hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-python-plain text-base"></i> Python</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-red-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/30 transition-all duration-300 flex items-center gap-1">Data Structures</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-green-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-green-600/30 transition-all duration-300 flex items-center gap-1">SFML</span>
+          </div>
+        </div>
+
+        <!-- Frontend & Design -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm transition-all" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="400" style="transform-style: preserve-3d;">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex items-center justify-center mb-6" style="transform: translateZ(30px);">
+            <i data-feather="layout" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4" style="transform: translateZ(20px);">Web & UI/UX</h3>
+          <div class="flex flex-wrap gap-2" style="transform: translateZ(10px);">
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-[#61dafb] hover:text-black hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-react-original text-base"></i> React</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-yellow-400 hover:text-black hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-400/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-javascript-plain text-base"></i> JavaScript</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-teal-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-teal-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-tailwindcss-original text-base"></i> Tailwind CSS</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-pink-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-figma-plain text-base"></i> Figma</span>
+          </div>
+        </div>
+
+        <!-- Backend & Data -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm transition-all" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5" data-tilt-speed="400" style="transform-style: preserve-3d;">
+          <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center mb-6" style="transform: translateZ(30px);">
+            <i data-feather="database" class="w-6 h-6 text-emerald-600 dark:text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4" style="transform: translateZ(20px);">Database & Data Science</h3>
+          <div class="flex flex-wrap gap-2" style="transform: translateZ(10px);">
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-red-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-oracle-original text-base"></i> SQL (Oracle)</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-emerald-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-1">Database Dev</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-emerald-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-1">Data Analysis</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-[#3ecf8e] hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-supabase-plain text-base"></i> Supabase</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-[#ffca28] hover:text-black hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-firebase-plain text-base"></i> Firebase</span>
+          </div>
+        </div>
+
+        <!-- Tools & AI -->
+        <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm transition-all" data-aos="fade-up" data-aos-delay="400" data-tilt data-tilt-max="5" data-tilt-speed="400" style="transform-style: preserve-3d;">
+          <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-xl flex items-center justify-center mb-6" style="transform: translateZ(30px);">
+            <i data-feather="zap" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4" style="transform: translateZ(20px);">Tools & Generative AI</h3>
+          <div class="flex flex-wrap gap-2" style="transform: translateZ(10px);">
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-black hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-500/30 transition-all duration-300 flex items-center gap-2"><i class="devicon-github-original text-base"></i> Git / GitHub</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-orange-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 flex items-center gap-2"><img src="https://cdn.simpleicons.org/n8n/fff" alt="n8n" class="w-4 h-4 group-hover:invert-0 dark:invert"> n8n</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-purple-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 flex items-center gap-1">Prompt Engineering</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-[#10a37f] hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 flex items-center gap-1">Custom GPTs / AI Agents</span>
+            <span class="px-3 py-1 bg-gray-50 dark:bg-[#0f172a] text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200 dark:border-gray-800 cursor-default hover:bg-blue-600 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center gap-1">Vercel / Netlify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 lg:py-32 border-t border-gray-200 dark:border-gray-800 relative z-10 bg-white/50 dark:bg-darkBg/50 backdrop-blur-3xl">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center " data-aos="fade-up">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
+        <i data-feather="mail" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Let's build something <span class="text-primary italic">great</span> together.</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-10">Whether you are a recruiter looking for a dedicated full-stack engineer or someone with a design challenge, my inbox is open.</p>
+      
+      <form action="https://formspree.io/f/mqazowbd" method="POST" class="max-w-2xl mx-auto bg-white dark:bg-darkCard p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
             </div>
         </div>
-    </section>
+        <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+            <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-blue-600 text-white font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center space-x-2">
+            <span>Send Message</span>
+            <i data-feather="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+      
+      <div class="mt-16 flex justify-center space-x-6">
+        <a href="https://github.com/SE-Muhammad-Shamoil" target="_blank" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span class="sr-only">GitHub</span>
+          <i data-feather="github" class="w-6 h-6"></i>
+        </a>
+        <a href="https://linkedin.com/in/m-shamoil" target="_blank" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span class="sr-only">LinkedIn</span>
+          <i data-feather="linkedin" class="w-6 h-6"></i>
+        </a>
+        <a href="tel:+923316873760" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+          <span class="sr-only">Phone</span>
+          <i data-feather="phone" class="w-6 h-6"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
-        <p>&copy; <span id="year"></span> Muhammad Shamoil | Built with Custom HTML, Tailwind & JS.</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
+    <p>&copy; <span id="year"></span> Muhammad Shamoil | Built with Custom HTML, Tailwind & JS.</p>
+  </footer>
 
-    <!-- Init JS Scripts -->
-    <script src="script.js"></script>
+  <!-- WebGL / 3D Background Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <!-- Init JS Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
